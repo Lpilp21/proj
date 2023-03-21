@@ -74,16 +74,10 @@ public class BookStoreApiTest {
     @Description("Launch bookstore website and get number of books, send request to API and get all books, validate is count matches")
     @Step("Validate UI and API retrived book count of the book store")
     public void ValidateBookCount() {
-        int countOfApiBooks = getAllBooksSteps.getBookList().getBooks().size(); // TODO: ana api countis sworad wamogeba
+        int countOfApiBooks = getAllBooksSteps.getBookList().getBooks().size();
         booksSteps
                 .ValidateSizes(countOfApiBooks);
-
-
-
-
     }
-
-
 
     @Attachment(value = "Screenshot on failure", type = "image/png")
     public byte[] takeScreenshot(WebDriver driver) {
