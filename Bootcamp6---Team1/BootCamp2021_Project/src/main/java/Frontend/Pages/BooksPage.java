@@ -10,8 +10,7 @@ import static com.codeborne.selenide.Selenide.$$;
 
 public class BooksPage {
     ArrayList<SelenideElement> books = new ArrayList<>();
-    public SelenideElement firstBook = $(".rt-tbody div:first-child .action-buttons");
-    public ElementsCollection allBooks = $$(".rt-tbody .rt-tr-group");
-
+    public SelenideElement firstBook = $(".rt-tbody div:first-child .mr-2");
+    public ElementsCollection allBooks = $$(".rt-tbody div:first-child .mr-2");
 
 }

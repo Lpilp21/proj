@@ -11,6 +11,7 @@ public class GetBookWithIsbnStep {
         Response response = RestAssured
                 .given()
                 .queryParam("ISBN", isbn)
+                .contentType("text/html; charset=utf-8")
                 .when()
                 .get(BASE_URL + "/Book")
                 .then()

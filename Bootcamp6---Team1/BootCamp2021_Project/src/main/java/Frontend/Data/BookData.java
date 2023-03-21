@@ -1,7 +1,7 @@
 package Frontend.Data;
 
 public class BookData {
-    public static String WEB_URL = "https://demoqa.com/Books";
+    public final static String WEB_URL = "https://demoqa.com/books";
     public static String isbn,
             title,
             subtitle,

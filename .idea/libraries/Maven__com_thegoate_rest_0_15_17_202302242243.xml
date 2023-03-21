@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.thegoate:rest:0.15.17.202302242243">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/thegoate/rest/0.15.17.202302242243/rest-0.15.17.202302242243.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/thegoate/rest/0.15.17.202302242243/rest-0.15.17.202302242243-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/thegoate/rest/0.15.17.202302242243/rest-0.15.17.202302242243-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

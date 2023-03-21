@@ -3,6 +3,7 @@ package Frontend.Steps;
 import Frontend.Data.BookData;
 import Frontend.Pages.BookPage;
 import Frontend.Pages.BooksPage;
+import com.codeborne.selenide.Condition;
 import io.qameta.allure.Step;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -17,6 +18,8 @@ public class GetFirstBookStep {
     private BookPage bookPage;
     public BookData bookData = new BookData();
 
+    private int UIBooksSize;
+
 
     public GetFirstBookStep() {
         mainPage = new MainPage();
@@ -25,55 +28,58 @@ public class GetFirstBookStep {
 
 
     }
-    @Step("launch book store")
-    public GetFirstBookStep clickBookStore() {
-        mainPage.bookStore.click();
-        return this;
-    }
     @Step("choose first book and go to details")
 
     public GetFirstBookStep clickFirstBook(){
-        booksPage.firstBook.click();
+        booksPage.firstBook.shouldBe(Condition.visible).click();
         return this;
     }
     @Step("get ISBN of first book")
     public GetFirstBookStep getBookIsbn(){
         bookData.isbn = bookPage.isbn.getText();
+        System.out.println(bookPage.isbn.getText());
         return this;
     }
     @Step("get title of first book")
     public GetFirstBookStep getBookTitle(){
         bookData.title = bookPage.title.getText();
+        System.out.println(bookPage.title.getText());
         return this;
     }
     @Step("get subtitle of first book")
     public GetFirstBookStep getBookSubtitle(){
         bookData.subtitle = bookPage.subtitle.getText();
+        System.out.println(bookPage.subtitle.getText());
         return this;
     }
     @Step("get author of first book")
     public GetFirstBookStep getBookAuthor(){
         bookData.author = bookPage.author.getText();
+        System.out.println(bookPage.author.getText());
         return this;
     }
     @Step("get publisher of first book")
     public GetFirstBookStep getBookPublisher(){
         bookData.publisher = bookPage.publisher.getText();
+        System.out.println(bookPage.publisher.getText());
         return this;
     }
     @Step("get page number of first book")
     public GetFirstBookStep getBookPages(){
         bookData.pages = Integer.parseInt(bookPage.pages.getText());
+        System.out.println(bookPage.pages.getText());
         return this;
     }
     @Step("get description of first book")
     public GetFirstBookStep getBookDescription(){
         bookData.description = bookPage.description.getText();
+        System.out.println(bookPage.description.getText());
         return this;
     }
     @Step("get website of first book")
     public GetFirstBookStep getBookWebsite(){
         bookData.website = bookPage.website.getText();
+        System.out.println(bookPage.website.getText());
         return this;
     }
     @Step("Validate ISBN value: {0}")
@@ -124,6 +130,10 @@ public class GetFirstBookStep {
         return this;
     }
 
-
-
+    @Step("compare book sizes")
+    public GetFirstBookStep ValidateSizes(int ApiBooksSize) {
+        UIBooksSize = booksPage.allBooks.size();
+        Assert.assertEquals(UIBooksSize, ApiBooksSize);
+        return this;
+    }
 }
