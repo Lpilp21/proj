@@ -1,0 +1,129 @@
+package Frontend.Steps;
+
+import Frontend.Data.BookData;
+import Frontend.Pages.BookPage;
+import Frontend.Pages.BooksPage;
+import io.qameta.allure.Step;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import Frontend.Pages.MainPage;
+import org.testng.Assert;
+
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
+
+public class GetFirstBookStep {
+    private MainPage mainPage;
+    private BooksPage booksPage;
+    private BookPage bookPage;
+    public BookData bookData = new BookData();
+
+
+    public GetFirstBookStep() {
+        mainPage = new MainPage();
+        booksPage = new BooksPage();
+        bookPage = new BookPage();
+
+
+    }
+    @Step("launch book store")
+    public GetFirstBookStep clickBookStore() {
+        mainPage.bookStore.click();
+        return this;
+    }
+    @Step("choose first book and go to details")
+
+    public GetFirstBookStep clickFirstBook(){
+        booksPage.firstBook.click();
+        return this;
+    }
+    @Step("get ISBN of first book")
+    public GetFirstBookStep getBookIsbn(){
+        bookData.isbn = bookPage.isbn.getText();
+        return this;
+    }
+    @Step("get title of first book")
+    public GetFirstBookStep getBookTitle(){
+        bookData.title = bookPage.title.getText();
+        return this;
+    }
+    @Step("get subtitle of first book")
+    public GetFirstBookStep getBookSubtitle(){
+        bookData.subtitle = bookPage.subtitle.getText();
+        return this;
+    }
+    @Step("get author of first book")
+    public GetFirstBookStep getBookAuthor(){
+        bookData.author = bookPage.author.getText();
+        return this;
+    }
+    @Step("get publisher of first book")
+    public GetFirstBookStep getBookPublisher(){
+        bookData.publisher = bookPage.publisher.getText();
+        return this;
+    }
+    @Step("get page number of first book")
+    public GetFirstBookStep getBookPages(){
+        bookData.pages = Integer.parseInt(bookPage.pages.getText());
+        return this;
+    }
+    @Step("get description of first book")
+    public GetFirstBookStep getBookDescription(){
+        bookData.description = bookPage.description.getText();
+        return this;
+    }
+    @Step("get website of first book")
+    public GetFirstBookStep getBookWebsite(){
+        bookData.website = bookPage.website.getText();
+        return this;
+    }
+    @Step("Validate ISBN value: {0}")
+    public GetFirstBookStep validateIsbn(String apiIsbn) {
+        Assert.assertEquals(apiIsbn, BookData.isbn);
+        return this;
+    }
+
+    @Step("Validate Title value: {0}")
+    public GetFirstBookStep validateTitle(String apiTitle) {
+        Assert.assertEquals(apiTitle, BookData.title);
+        return this;
+    }
+
+    @Step("Validate Subtitle value: {0}")
+    public GetFirstBookStep validateSubtitle(String apiSubtitle) {
+        Assert.assertEquals(apiSubtitle, BookData.subtitle);
+        return this;
+    }
+
+    @Step("Validate Author value: {0}")
+    public GetFirstBookStep validateAuthor(String apiAuthor) {
+        Assert.assertEquals(apiAuthor, BookData.author);
+        return this;
+    }
+
+    @Step("Validate Publisher value: {0}")
+    public GetFirstBookStep validatePublisher(String apiPublisher) {
+        Assert.assertEquals(apiPublisher, BookData.publisher);
+        return this;
+    }
+
+    @Step("Validate Pages value: {0}")
+    public GetFirstBookStep validatePages(int apiPages) {
+        Assert.assertEquals(apiPages, BookData.pages);
+        return this;
+    }
+
+    @Step("Validate Description value: {0}")
+    public GetFirstBookStep validateDescription(String apiDescription) {
+        Assert.assertEquals(apiDescription, BookData.description);
+        return this;
+    }
+
+    @Step("Validate Website value: {0}")
+    public GetFirstBookStep validateWebsite(String apiWebsite) {
+        Assert.assertEquals(apiWebsite, BookData.website);
+        return this;
+    }
+
+
+
+}
