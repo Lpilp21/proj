@@ -1,18 +1,19 @@
 package Backend.Models.ResponseModel;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class GetBookResponse{
 	private String website;
 	private int pages;
 	private String subTitle;
 	private String author;
+	private String publishDate;
+
 	private String isbn;
 	private String publisher;
 	private String description;
 	private String title;
-	@JsonIgnore
-	private String publishDate;
 
 	public void setWebsite(String website){
 		this.website = website;
@@ -44,6 +45,12 @@ public class GetBookResponse{
 
 	public String getAuthor(){
 		return author;
+	}
+	public void setPublishDate(String publishDate){
+		this.publishDate = publishDate;
+	}
+	public String getPublishDate(){
+		return publishDate;
 	}
 
 	public void setIsbn(String isbn){
@@ -78,11 +85,4 @@ public class GetBookResponse{
 		return title;
 	}
 
-	public void setPublishDate(String publishDate){
-		this.publishDate = publishDate;
-	}
-
-	public String getPublishDate(){
-		return publishDate;
-	}
 }

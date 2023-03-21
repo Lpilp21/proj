@@ -3,13 +3,13 @@ package Backend.Models.ResponseModel;
 import java.util.List;
 
 public class GetAllBooksResponse{
-	private List<BooksItem> books;
+	private List<GetBookResponse> books;
 
-	public void setBooks(List<BooksItem> books){
+	public void setBooks(List<GetBookResponse> books){
 		this.books = books;
 	}
 
-	public List<BooksItem> getBooks(){
+	public List<GetBookResponse> getBooks(){
 		return books;
 	}
 }
